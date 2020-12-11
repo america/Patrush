@@ -1,0 +1,1 @@
+patrush: python pytrush.py
