@@ -1,1 +1,1 @@
-patrush: python pytrush.py
+patrush: python patrush.py
