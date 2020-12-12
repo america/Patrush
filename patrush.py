@@ -1,4 +1,5 @@
 import discord
+import os
 import traceback
 import logging
 
@@ -11,6 +12,8 @@ logger.addHandler(handler)
 
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
+# 環境変数からトークンを読み込む
+token = os.environ['DISCORD_BOT_TOKEN']
 
 # 起動時に動作する処理
 @client.event
@@ -34,17 +37,7 @@ async def on_message(message):
 
     try:
         await message.channel.send(cmd_map[message.content])
-
     except KeyError as ke:
-#        raise ValueError('Invalid content: {}'.format(message.content))
-#        raise ke
         traceback.print_exc()
     
-# アクセストークンが書かれたファイルを読み込み専用で開く
-f = open('AT.txt', 'r', encoding='UTF-8')
-# ファイルを読み込む
-token = f.read()
-# ファイルを閉じる
-f.close()
-
 client.run(token)
