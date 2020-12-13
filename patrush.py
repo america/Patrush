@@ -37,12 +37,14 @@ async def on_message(message):
     cmd_map = {
         '/neko': 'にゃーん',
         '/inu': 'わんっ',
-        'お名前は？': client.user.name
+        'お名前は？': client.user.name,
+        'パトラッシュ': '何だお前ら金持ってんのか？'
     }
 
     try:
         await message.channel.send(cmd_map[message.content])
     except KeyError:
         traceback.print_exc()
+
 
 client.run(token)
