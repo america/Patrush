@@ -5,8 +5,11 @@ import logging
 
 logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)
-handler = logging.FileHandler(filename='discord.log', encoding='utf-8', mode='w')
-handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
+handler = logging.FileHandler(filename='discord.log',
+                              encoding='utf-8',
+                              mode='w')
+handler.setFormatter(
+    logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
 logger.addHandler(handler)
 
 
@@ -18,7 +21,9 @@ token = os.environ['DISCORD_BOT_TOKEN']
 # 起動時に動作する処理
 @client.event
 async def on_ready():
+    logger.debug("on_ready")
     print("on_ready")
+    logger.debug(discord.__version__)
     print(discord.__version__)
 
 # メッセージ受信時に動作する処理
@@ -37,7 +42,7 @@ async def on_message(message):
 
     try:
         await message.channel.send(cmd_map[message.content])
-    except KeyError as ke:
+    except KeyError:
         traceback.print_exc()
-    
+
 client.run(token)
