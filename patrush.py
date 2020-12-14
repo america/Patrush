@@ -33,16 +33,16 @@ async def on_message(message):
     if message.author.bot:
         return
 
-    # マップ
-    cmd_map = {
+    # 辞書
+    cmd_dict = {
         '/neko': 'にゃーん',
         '/inu': 'わんっ',
         'お名前は？': client.user.name,
-        'パトラッシュ': '何だお前ら金持ってんのか？'
+        'パトラッシュ': '出会う日まで行くんだー'
     }
 
     try:
-        await message.channel.send(cmd_map[message.content])
+        await message.channel.send(cmd_dict[message.content])
     except KeyError:
         traceback.print_exc()
 
