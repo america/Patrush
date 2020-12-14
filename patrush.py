@@ -38,7 +38,7 @@ async def on_message(message):
         '/neko': 'にゃーん',
         '/inu': 'わんっ',
         'お名前は？': client.user.name,
-        'パトラッシュ': '出会う日まで行くんだー'
+        'パトラッシュ': '古畑任三郎でした'
     }
 
     try:
