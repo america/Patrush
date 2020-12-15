@@ -2,6 +2,7 @@ import discord
 import os
 import traceback
 import logging
+import random
 
 logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)
@@ -35,7 +36,8 @@ async def on_message(message):
         return
 
     if message.content == 'パトラッシュ':
-        msg = message.author.mention + " 呼んだ？"
+        list = [" 呼んだ？", " この健康優良野郎！", " 何だお前金持ってんのか？"]
+        msg = message.author.mention + random.choice(list)
 #        await client.message(message.channel, msg)
         await message.channel.send(msg)
 
