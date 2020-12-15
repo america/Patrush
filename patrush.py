@@ -17,17 +17,10 @@ client = discord.Client()
 # 環境変数からトークンを読み込む
 token = os.environ['DISCORD_BOT_TOKEN']
 
-cmd_dict = {
-    '/neko': 'にゃーん',
-    '/inu': 'わんっ',
-    'お名前は？': client.user.name,
-    'パトラッシュ': '古畑任三郎でした'
-}
-
 
 # 返信する非同期関数を定義
 async def reply(message):
-    reply = f"{message.author.mention} 呼んだ？"  # 返信メッセージの作成
+    reply = f'{message.author.mention} 呼んだ？'  # 返信メッセージの作成
     await message.channel.send(reply)  # 返信メッセージを送信
 
 # 起動時に動作する処理
@@ -48,6 +41,13 @@ async def on_message(message):
     # 話しかけられたかの判定
     if client.user in message.mentions:
         await reply(message)
+
+    cmd_dict = {
+        '/neko': 'にゃーん',
+        '/inu': 'わんっ',
+        'お名前は？': client.user.name,
+        'パトラッシュ': '古畑任三郎でした'
+    }
 
     try:
         await message.channel.send(cmd_dict[message.content])
