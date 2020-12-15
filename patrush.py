@@ -18,6 +18,7 @@ client = discord.Client()
 # 環境変数からトークンを読み込む
 token = os.environ['DISCORD_BOT_TOKEN']
 
+
 # 起動時に動作する処理
 @client.event
 async def on_ready():
@@ -33,12 +34,15 @@ async def on_message(message):
     if message.author.bot:
         return
 
+    if message.content == 'パトラッシュ':
+        msg = message.author.mention + "呼んだ？"
+        await client.send_message(message.channel, msg)
+
     # 辞書
     cmd_dict = {
         '/neko': 'にゃーん',
         '/inu': 'わんっ',
         'お名前は？': client.user.name,
-        'パトラッシュ': '古畑任三郎でした'
     }
 
     try:
