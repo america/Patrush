@@ -12,16 +12,11 @@ handler.setFormatter(
     logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
 logger.addHandler(handler)
 
+
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
 # 環境変数からトークンを読み込む
 token = os.environ['DISCORD_BOT_TOKEN']
-
-
-# 返信する非同期関数を定義
-async def reply(message):
-    reply = f'{message.author.mention} 呼んだ？'  # 返信メッセージの作成
-    await message.channel.send(reply)  # 返信メッセージを送信
 
 # 起動時に動作する処理
 @client.event
@@ -38,10 +33,7 @@ async def on_message(message):
     if message.author.bot:
         return
 
-    # 話しかけられたかの判定
-    if client.user in message.mentions:
-        await reply(message)
-
+    # 辞書
     cmd_dict = {
         '/neko': 'にゃーん',
         '/inu': 'わんっ',
