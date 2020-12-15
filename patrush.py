@@ -2,6 +2,7 @@ import discord
 import os
 import traceback
 import logging
+import asyncio
 
 logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)
@@ -36,7 +37,7 @@ async def on_message(message):
 
     if message.content == 'パトラッシュ':
         msg = message.author.mention + "呼んだ？"
-        await client.send_message(message.channel, msg)
+        await client.message(message.channel, msg)
 
     # 辞書
     cmd_dict = {
