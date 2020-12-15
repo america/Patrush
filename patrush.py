@@ -37,7 +37,8 @@ async def on_message(message):
 
     if message.content == 'パトラッシュ':
         msg = message.author.mention + "呼んだ？"
-        await client.message(message.channel, msg)
+#        await client.message(message.channel, msg)
+        await message.channel.send(msg)
 
     # 辞書
     cmd_dict = {
