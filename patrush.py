@@ -37,7 +37,7 @@ async def on_message(message):
 
     if message.content == 'パトラッシュ':
         list = [" 呼んだ？",
-                " なんでしょうか？",
+                " なんでしょうか？"
                 ]
         
         msg = message.author.mention + random.choice(list)
