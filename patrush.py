@@ -36,7 +36,10 @@ async def on_message(message):
         return
 
     if message.content == 'パトラッシュ':
-        list = [" 呼んだ？", " この健康優良野郎！", " 何だお前金持ってんのか？"]
+        list = [" 呼んだ？",
+                " なんでしょうか？",
+                ]
+        
         msg = message.author.mention + random.choice(list)
 #        await client.message(message.channel, msg)
         await message.channel.send(msg)
