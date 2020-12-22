@@ -51,13 +51,10 @@ async def on_message(message):
         'お名前は？': client.user.name,
     }
 
-    if cmd_dict[message.content]:
+    if message.content in cmd_dict:
         try:
             await message.channel.send(cmd_dict[message.content])
-        except Exception as e:
-            raise e
+        except Exception:
+            traceback.print_exc()
 
-try:
-    client.run(token)
-except Exception:
-    traceback.print_exc()
+client.run(token)
