@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import discord
 import os
 import traceback
@@ -12,7 +14,6 @@ handler = logging.FileHandler(filename='discord.log',
 handler.setFormatter(
     logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
 logger.addHandler(handler)
-
 
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
@@ -39,9 +40,8 @@ async def on_message(message):
         list = [" 呼んだ？",
                 " なんでしょうか？"
                 ]
-        
+
         msg = message.author.mention + random.choice(list)
-#        await client.message(message.channel, msg)
         await message.channel.send(msg)
 
     # 辞書
@@ -51,10 +51,13 @@ async def on_message(message):
         'お名前は？': client.user.name,
     }
 
-    try:
-        await message.channel.send(cmd_dict[message.content])
-    except KeyError:
-        traceback.print_exc()
+    if cmd_dict[message.content]:
+        try:
+            await message.channel.send(cmd_dict[message.content])
+        except Exception as e:
+            raise e
 
-
-client.run(token)
+try:
+    client.run(token)
+except Exception:
+    traceback.print_exc()

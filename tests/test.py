@@ -1,13 +1,15 @@
 import unittest
+import
 
-class SampleTest(unittest.TestCase):
+class TestPatrush(unittest.TestCase):
     def setUp(self):
         pass
 
-    def test_sample_method(self):
-        expected = 1
-        actual = 1
+    def test_on_message(self):
+        expected = 'にゃーん'
+        actual = 'にゃーん'
         self.assertEqual(expected, actual)
+
 
 if __name__ == "__main__":
     unittest.main()
