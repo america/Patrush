@@ -1,5 +1,5 @@
 import unittest
-from Mock import MagicMock
+from unittest.mock import MagicMock
 import patrush
 
 
