@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import MagicMock
-import patrush
+from .. import patrush
 
 
 class TestPatrush(unittest.TestCase):
