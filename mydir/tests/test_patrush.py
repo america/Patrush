@@ -1,9 +1,9 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import unittest
 from unittest.mock import MagicMock
-import sys
-sys.path.append("..")
-from patrush import on_message
-
+from patrush import *
 
 class TestPatrush(unittest.TestCase):
     def setUp(self):
