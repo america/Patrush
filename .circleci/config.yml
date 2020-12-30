@@ -12,7 +12,7 @@ jobs:
       - python/install-deps
       - python/save-cache
       - run:
-          command: python mydir/tests/test_patrush.py
+          command: python mypkg/tests/test_patrush.py
           name: Test
 
 workflows:
