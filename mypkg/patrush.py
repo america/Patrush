@@ -34,7 +34,7 @@ async def on_ready():
 async def on_message(message):
     # メッセージ送信者がBotだった場合は無視する
     if message.author.bot:
-        return
+        return None
 
     if message.content == 'パトラッシュ':
         list = [" 呼んだ？",
