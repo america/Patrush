@@ -3,7 +3,7 @@
 
 import unittest
 from unittest.mock import MagicMock
-from patrush import on_message
+from mypkg.patrush import on_message
 import asyncio
 import traceback
 
