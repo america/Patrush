@@ -3,8 +3,10 @@
 
 import unittest
 from unittest.mock import MagicMock
-from patrush import *
+from patrush import on_message
 import asyncio
+import traceback
+
 
 class TestPatrush(unittest.TestCase):
     def setUp(self):
@@ -15,15 +17,20 @@ class TestPatrush(unittest.TestCase):
     def test_on_message_case01(self):
         case01Mock = MagicMock()
         case01Mock.author.bot = True
-        loop = asyncio.get_event_loop()
+        loop = asyncio.new_event_loop()
         actual = loop.run_until_complete(on_message(case01Mock))
         print("☆☆☆ on_messageの戻り値 ☆☆☆")
         print(actual)
         print("☆☆☆☆☆☆")
-        
+
         expected = None
 
         self.assertEqual(expected, actual)
 
+
 if __name__ == "__main__":
-    unittest.main()
+
+    try:
+        unittest.main()
+    except Exception:
+        traceback.print_exc()
